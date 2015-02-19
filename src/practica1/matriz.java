@@ -86,7 +86,9 @@ public class matriz {
             System.out.println("<"+aux.id+">");
             nodoMatriz aux1=aux.interior;
             while(aux1!=null){
-                System.out.print("["+aux1.posx+","+aux1.posy+"] ");
+                System.out.println("["+aux1.posx+","+aux1.posy+"] ");
+                recProfundidad(aux1);//rev
+                System.out.println();//rev
                 aux1=aux1.sig;
             }
             System.out.println();
@@ -94,5 +96,13 @@ public class matriz {
         }
     }
     
-    private void recProfundidad(nodoMatriz base){}
+    private void recProfundidad(nodoMatriz base){
+        nodoMatriz aux=base;
+        if(aux.atras!=null){
+            while(aux!=null){
+                System.out.print("¡"+aux.tipo+"! ");
+                aux=aux.atras;
+            }
+        }
+    }
 }

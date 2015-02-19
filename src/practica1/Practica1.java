@@ -22,11 +22,17 @@ public class Practica1 {
         f.add(2);
         matriz tablero=new matriz();
         tablero.add(c, f, 0, 1, 1);
+        tablero.add(c, f, 1, 1, 1);
+        tablero.add(c, f, 2, 1, 1);
+        tablero.add(c, f, 3, 1, 1);
+        tablero.add(c, f, 4, 1, 1);
+        tablero.add(c, f, 5, 1, 1);
         tablero.add(c, f, 0, 2, 1);
         tablero.add(c, f, 0, 1, 2);
         tablero.add(c, f, 0, 2, 2);
         tablero.add(c, f, 1, 2, 2);
         tablero.add(c, f, 2, 2, 2);
         tablero.recorrer(c, f);
+        
     }  
 }
