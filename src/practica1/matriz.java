@@ -2,9 +2,9 @@ package practica1;
 
 public class matriz {
     
-    public void add(listaCabecera col, listaCabecera fil, int tipo, int x, int y){
+    public void add(listaCabecera col, listaCabecera fil, int tipo, int x, int y, String pic, int danio, int ataque){
         nodoMatriz actX=null,actY=null;
-        nodoMatriz nuevo=new nodoMatriz(tipo,x,y);
+        nodoMatriz nuevo=new nodoMatriz(tipo,x,y,pic,danio,ataque);
         nodoCabecera auxC,auxF;
         auxC=col.buscar(y);     //todos los nodos a buscar deben existir
         auxF=fil.buscar(x);
