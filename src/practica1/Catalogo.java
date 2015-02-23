@@ -1,8 +1,8 @@
 package practica1;
 
 public class Catalogo {
-    private nodoPersonaje primero;
-    private nodoPersonaje ultimo;
+    public nodoPersonaje primero;
+    public nodoPersonaje ultimo;
     
     Catalogo(){
         primero=null;
@@ -47,5 +47,4 @@ public class Catalogo {
         }
     }
     
-    //public nodoPersonaje extraer(){}
 }

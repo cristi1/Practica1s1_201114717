@@ -1,7 +1,11 @@
 package practica1;
 
+import java.awt.Color;
+import javax.swing.JPanel;
+
 public class menuCatalogo extends javax.swing.JFrame {
     Catalogo catPersonajes;
+    JPanel fondo;
 
     public menuCatalogo() {
         initComponents();
@@ -14,7 +18,6 @@ public class menuCatalogo extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -33,24 +36,15 @@ public class menuCatalogo extends javax.swing.JFrame {
 
         jLabel3.setText("Puntos");
 
-        jPanel1.setBackground(new java.awt.Color(43, 229, 136));
-        jPanel1.setAutoscrolls(true);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
-        );
-
         jLabel4.setText("Ataque");
 
         jButton1.setBackground(java.awt.Color.orange);
         jButton1.setText("Actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Archivo");
 
@@ -99,10 +93,6 @@ public class menuCatalogo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(127, 127, 127)
                 .addComponent(jLabel1)
                 .addGap(76, 76, 76)
@@ -126,9 +116,7 @@ public class menuCatalogo extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(467, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,6 +128,32 @@ public class menuCatalogo extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    public void cargarCatalogo(){
+        nodoPersonaje aux=catPersonajes.primero;
+        String atq="";
+        fondo=new JPanel();
+        fondo.setBounds(60, 40, 550, 400);
+        fondo.setBackground(Color.LIGHT_GRAY);
+        fondo.setVisible(true);
+        this.add(fondo);
+        int y=30;
+        while(aux!=null){
+            if(aux.ataque==0){
+                atq="directo";
+            }else if(aux.ataque==1){
+                atq="disparo";
+            }
+            aux.setLocation(60, y);
+            aux.setText("        "+aux.nombre+"          "+aux.puntos+"          "+atq);
+            aux.setVisible(true);
+            aux.repaint();
+            this.fondo.add(aux);
+            y=y+130;
+            aux=aux.sig;
+        }
+        fondo.setAutoscrolls(true);
+        this.repaint();
+    }
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -151,6 +165,11 @@ public class menuCatalogo extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.remove(fondo);
+        cargarCatalogo();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -165,6 +184,5 @@ public class menuCatalogo extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

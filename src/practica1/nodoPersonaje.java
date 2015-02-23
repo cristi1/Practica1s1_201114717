@@ -16,18 +16,17 @@ public class nodoPersonaje extends JLabel{
         this.pic=pic;
         this.puntos=puntos;
         this.ataque=ataque;
-        this.setIcon(icono(pic));
-        this.setSize(40,40);
-        this.setVisible(true);
+        this.setIcon(new ImageIcon(getClass().getResource(pic)));
+        this.setSize(400,110);
         this.ant=null;
         this.sig=null;
     }
     
-    private ImageIcon icono(String pic){
+    /*private ImageIcon icono(String pic){
         ImageIcon portadap= new ImageIcon(pic);//"grafico.jpg"
         Image imagenp = portadap.getImage();
         ImageIcon tamanop = new ImageIcon(imagenp.getScaledInstance(40,40,Image.SCALE_SMOOTH));//SCALE_SMOOTH
         return tamanop;
-    }
+    }*/
     
 }
