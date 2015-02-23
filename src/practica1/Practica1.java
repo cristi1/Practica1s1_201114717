@@ -12,7 +12,10 @@ public class Practica1 {
     public static void main(String[] args) {
         //jiijjijjiji
         System.out.println("Hola a todos :J");
-        listaCabecera c=new listaCabecera();
+        jugadores j=new jugadores();
+        inicio ventana=new inicio();
+        ventana.setVisible(true);
+        /*listaCabecera c=new listaCabecera();
         c.add(1);
         c.add(2);
         c.add(3);
@@ -53,5 +56,6 @@ public class Practica1 {
         cc.add(2222222, 0, 0, "", 4, 1);
         
         cc.recorrer();
+        */
     }  
 }
