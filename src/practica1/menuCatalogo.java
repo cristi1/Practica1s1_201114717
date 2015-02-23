@@ -1,7 +1,7 @@
 package practica1;
 
 public class menuCatalogo extends javax.swing.JFrame {
-    Catalogo plantas, zombies;
+    Catalogo catPersonajes;
 
     public menuCatalogo() {
         initComponents();
@@ -135,7 +135,9 @@ public class menuCatalogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        
+        agregarPersonaje ventana=new agregarPersonaje();
+        ventana.listaPersonaje=catPersonajes;
+        ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed

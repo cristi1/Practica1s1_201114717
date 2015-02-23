@@ -7,7 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class agregarPersonaje extends javax.swing.JFrame {
-    Catalogo listaPersonaje;
+    public Catalogo listaPersonaje;
+    private String dir="";
 
     public agregarPersonaje() {
         initComponents();
@@ -18,15 +19,12 @@ public class agregarPersonaje extends javax.swing.JFrame {
     	
     	selarchivo = new JFileChooser();  //path del ususario
         selarchivo.showOpenDialog(null);  //se muestra directamente
-        FileNameExtensionFilter filter = new FileNameExtensionFilter(
-        "JPG & GIF Images", "jpg", "gif");
-        selarchivo.setFileFilter(filter);
-        String dir=selarchivo.getSelectedFile().getPath();
+        dir=selarchivo.getSelectedFile().getPath();
         ImageIcon foto= new ImageIcon(dir);
     	Image imagen = foto.getImage();
     	ImageIcon icono = new ImageIcon(imagen.getScaledInstance(140,140,Image.SCALE_SMOOTH));
     	etiqueta.setIcon(icono);
-        repaint();
+        etiqueta.repaint();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -84,15 +82,11 @@ public class agregarPersonaje extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)))
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
@@ -151,6 +145,7 @@ public class agregarPersonaje extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         cargar_foto(jLabel1);
+        jLabel1.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -158,7 +153,7 @@ public class agregarPersonaje extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        listaPersonaje.add(jTextField1.getText(), dir, Integer.parseInt(jTextField2.getText()), (int) jComboBox1.getSelectedItem());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
