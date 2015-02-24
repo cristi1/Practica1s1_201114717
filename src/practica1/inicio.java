@@ -7,12 +7,19 @@ public class inicio extends javax.swing.JFrame {
     private menuCatalogo plantas;
     private menuCatalogo zombies;
     private Catalogo p,z;  //p->cat. plantas z->cat. zombies 
+    int ancho=0,alto=0;
     
     public inicio() {
         initComponents();
         listaJugadores=new jugadores();
         p=new Catalogo();
         z=new Catalogo();
+        p.add("planta1", "planta1.gif", 54, 1);
+        p.add("planta2", "planta2.gif", 90, 0);
+        p.add("planta3", "planta3.gif", 60, 0);
+        p.add("planta4", "planta4.gif", 70, 0);
+        p.add("planta6", "planta6.gif", 100, 1);
+        p.add("planta7", "planta7.gif", 110, 1);
     }
 
     @SuppressWarnings("unchecked")
@@ -167,8 +174,17 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         boolean resp=listaJugadores.completa();
-        if(resp==true){
+        
+        if(resp==true && !p.vacia() && !z.vacia()){
             JOptionPane.showMessageDialog(null,"iniciara juego....");
+            String anch=JOptionPane.showInputDialog(null,"Ingrese el ancho del tablero");
+            String alt=JOptionPane.showInputDialog(null,"Ingrese el alto del tablero");
+            ancho=Integer.parseInt(anch);
+            alto=Integer.parseInt(alt);
+            JOptionPane.showMessageDialog(null,"tamaño del tablero "+ancho+" x "+alto);
+
+        }else{
+            JOptionPane.showMessageDialog(null,"Complete la informacion necesaria antes de iniciar el juego!!");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -190,6 +206,7 @@ public class inicio extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         zombies=new menuCatalogo();
         zombies.catPersonajes=z;
+        zombies.cargarCatalogo();
         zombies.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

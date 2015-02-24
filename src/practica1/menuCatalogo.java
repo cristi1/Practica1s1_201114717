@@ -1,11 +1,12 @@
 package practica1;
-
 import java.awt.Color;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class menuCatalogo extends javax.swing.JFrame {
     Catalogo catPersonajes;
     JPanel fondo;
+    JScrollPane scroll2; 
 
     public menuCatalogo() {
         initComponents();
@@ -116,7 +117,7 @@ public class menuCatalogo extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(467, Short.MAX_VALUE))
+                .addContainerGap(445, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,11 +132,16 @@ public class menuCatalogo extends javax.swing.JFrame {
     public void cargarCatalogo(){
         nodoPersonaje aux=catPersonajes.primero;
         String atq="";
+        //scroll2= new JScrollPane();
+        //scroll2.setBounds(60, 40, 550, 400);
+        //scroll2.setVisible(true);
+        //this.add(scroll2);
         fondo=new JPanel();
-        fondo.setBounds(60, 40, 550, 400);
-        fondo.setBackground(Color.LIGHT_GRAY);
+        fondo.setBounds(60, 30, 550, 500);
+        fondo.setBackground(Color.ORANGE);
         fondo.setVisible(true);
-        this.add(fondo);
+        
+        //scroll2.add(fondo);
         int y=30;
         while(aux!=null){
             if(aux.ataque==0){
@@ -143,7 +149,7 @@ public class menuCatalogo extends javax.swing.JFrame {
             }else if(aux.ataque==1){
                 atq="disparo";
             }
-            aux.setLocation(60, y);
+            aux.setLocation(60,y);
             aux.setText("        "+aux.nombre+"          "+aux.puntos+"          "+atq);
             aux.setVisible(true);
             aux.repaint();
@@ -151,15 +157,16 @@ public class menuCatalogo extends javax.swing.JFrame {
             y=y+130;
             aux=aux.sig;
         }
-        fondo.setAutoscrolls(true);
+        this.add(fondo);
         this.repaint();
     }
+    
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed

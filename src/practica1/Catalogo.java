@@ -25,6 +25,14 @@ public class Catalogo {
         }
     }
     
+    public boolean vacia(){
+        if(primero!=null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
     public boolean buscar(String nombre){
         nodoPersonaje auxiliar=primero;
         int i=auxiliar.nombre.compareTo(nombre);
