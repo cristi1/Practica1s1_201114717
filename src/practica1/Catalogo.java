@@ -9,15 +9,15 @@ public class Catalogo {
         ultimo=null;
     }
     
-    public void add(String nombre, String pic, int puntos, int ataque){
+    public void add(int tipo, int x, int y,String nombre, String pic, int puntos, int ataque){
         if(primero==null){
-            nodoPersonaje nuevo=new nodoPersonaje(nombre,pic,puntos,ataque);
+            nodoPersonaje nuevo=new nodoPersonaje(tipo,x,y,nombre,pic,puntos,ataque);
             primero=nuevo;
             ultimo=nuevo;
         }else{
             boolean r=buscar(nombre);
             if(r==false){
-                nodoPersonaje nuevo=new nodoPersonaje(nombre,pic,puntos,ataque);
+                nodoPersonaje nuevo=new nodoPersonaje(tipo,x,y,nombre,pic,puntos,ataque);
                 ultimo.sig=nuevo;
                 nuevo.ant=ultimo;
                 ultimo=nuevo;

@@ -5,6 +5,7 @@ import javax.swing.JScrollPane;
 
 public class menuCatalogo extends javax.swing.JFrame {
     Catalogo catPersonajes;
+    int tipo=0;
     JPanel fondo;
     JScrollPane scroll2; 
 
@@ -125,8 +126,10 @@ public class menuCatalogo extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         agregarPersonaje ventana=new agregarPersonaje();
+        ventana.tipo=this.tipo;
         ventana.listaPersonaje=catPersonajes;
         ventana.setVisible(true);
+        System.out.println(this.tipo);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public void cargarCatalogo(){

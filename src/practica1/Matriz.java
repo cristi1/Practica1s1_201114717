@@ -1,10 +1,9 @@
 package practica1;
 
-public class matriz {
+public class Matriz {
     
-    /*public void add(listaCabecera col, listaCabecera fil, int tipo, int x, int y, String pic, int danio, int ataque){
-        nodoMatriz actX=null,actY=null;
-        nodoMatriz nuevo=new nodoMatriz(tipo,x,y,pic,danio,ataque);
+    public void add(listaCabecera col, listaCabecera fil, nodoPersonaje nuevo, int x, int y){
+        nodoPersonaje actX=null,actY=null;
         nodoCabecera auxC,auxF;
         auxC=col.buscar(y);     //todos los nodos a buscar deben existir
         auxF=fil.buscar(x);
@@ -23,8 +22,8 @@ public class matriz {
         }
     }
     
-    private nodoMatriz ubicarColumna(nodoMatriz primero, nodoMatriz nuevo, int x){
-        nodoMatriz aux=primero;
+    private nodoPersonaje ubicarColumna(nodoPersonaje primero, nodoPersonaje nuevo, int x){
+        nodoPersonaje aux=primero;
         while(aux.abajo!=null && aux.posx!=x){
             aux=aux.abajo;
         }
@@ -38,8 +37,8 @@ public class matriz {
         }
     }
     
-    private nodoMatriz ubicarFila(nodoMatriz primero, nodoMatriz nuevo, int y){
-        nodoMatriz aux=primero;
+    private nodoPersonaje ubicarFila(nodoPersonaje primero, nodoPersonaje nuevo, int y){
+        nodoPersonaje aux=primero;
         while(aux.sig!=null && aux.posy!=y){
             aux=aux.sig;
         }
@@ -53,8 +52,8 @@ public class matriz {
         }
     }
     
-    private void ubicarProfundidad(nodoMatriz base, nodoMatriz nuevo){
-        nodoMatriz aux=base;
+    private void ubicarProfundidad(nodoPersonaje base, nodoPersonaje nuevo){
+        nodoPersonaje aux=base;
         while(aux.atras!=null){
             aux=aux.atras;
         }
@@ -71,7 +70,7 @@ public class matriz {
         nodoCabecera aux=columna.primero;
         while(aux!=null){
             System.out.println("<"+aux.id+">");
-            nodoMatriz aux1=aux.interior;
+            nodoPersonaje aux1=aux.interior;
             while(aux1!=null){
                 System.out.print("("+aux1.posx+","+aux1.posy+") ");
                 aux1=aux1.abajo;
@@ -84,7 +83,7 @@ public class matriz {
         nodoCabecera aux=fila.primero;
         while(aux!=null){
             System.out.println("<"+aux.id+">");
-            nodoMatriz aux1=aux.interior;
+            nodoPersonaje aux1=aux.interior;
             while(aux1!=null){
                 System.out.println("["+aux1.posx+","+aux1.posy+"] ");
                 recProfundidad(aux1);//rev
@@ -96,13 +95,13 @@ public class matriz {
         }
     }
     
-    private void recProfundidad(nodoMatriz base){
-        nodoMatriz aux=base;
+    private void recProfundidad(nodoPersonaje base){
+        nodoPersonaje aux=base;
         if(aux.atras!=null){
             while(aux!=null){
                 System.out.print("¡"+aux.tipo+"! ");
                 aux=aux.atras;
             }
         }
-    }*/
+    }
 }

@@ -12,14 +12,23 @@ public class inicio extends javax.swing.JFrame {
     public inicio() {
         initComponents();
         listaJugadores=new jugadores();
+        listaJugadores.add(1, "planta", 14);
+        listaJugadores.add(2, "zombie", 15);
+        listaJugadores.otros(1, "P");
+        listaJugadores.otros(2, "Z");
+        listaJugadores.otros(1, "L");
+        listaJugadores.otros(2, "O");
+        listaJugadores.otros(1, "A");
+        listaJugadores.otros(2, "M");    
+        listaJugadores.grafica();
         p=new Catalogo();
         z=new Catalogo();
-        p.add("planta1", "planta1.gif", 54, 1);
-        p.add("planta2", "planta2.gif", 90, 0);
-        p.add("planta3", "planta3.gif", 60, 0);
-        p.add("planta4", "planta4.gif", 70, 0);
-        p.add("planta6", "planta6.gif", 100, 1);
-        p.add("planta7", "planta7.gif", 110, 1);
+        p.add(1,0,0,"planta1", "planta1.gif", 54, 1);
+        p.add(1,0,0,"planta2", "planta2.gif", 90, 0);
+        p.add(1,0,0,"planta3", "planta3.gif", 60, 0);
+        p.add(1,0,0,"planta4", "planta4.gif", 70, 0);
+        p.add(1,0,0,"planta6", "planta6.gif", 100, 1);
+        p.add(1,0,0,"planta7", "planta7.gif", 110, 1);
     }
 
     @SuppressWarnings("unchecked")
@@ -198,6 +207,7 @@ public class inicio extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         plantas=new menuCatalogo();
+        plantas.tipo=1;
         plantas.catPersonajes=p;
         plantas.cargarCatalogo();
         plantas.setVisible(true);
@@ -205,6 +215,7 @@ public class inicio extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         zombies=new menuCatalogo();
+        zombies.tipo=2;
         zombies.catPersonajes=z;
         zombies.cargarCatalogo();
         zombies.setVisible(true);

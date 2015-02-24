@@ -15,7 +15,7 @@ public class nodoMatriz {
     nodoMatriz adelante;
     //nodoCabecera cabeza;
     
-    nodoMatriz(int tipo, int posx, int posy, String personaje, int danio, int ataque){
+    nodoMatriz(int tipo, int posx, int posy, String personaje, int danio, int ataque){ //[x,y]
         this.tipo=tipo;
         this.posx=posx;
         this.posy=posy;
@@ -28,6 +28,5 @@ public class nodoMatriz {
         this.abajo=null;
         this.atras=null;
         this.adelante=null;
-        //this.cabeza=null;
     }   
 }

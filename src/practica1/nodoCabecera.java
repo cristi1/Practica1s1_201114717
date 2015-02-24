@@ -4,7 +4,8 @@ public class nodoCabecera {
     int id;
     nodoCabecera ant;
     nodoCabecera sig;
-    nodoMatriz interior;
+    //nodoMatriz interior;
+    nodoPersonaje interior;
     
     nodoCabecera(int id){
         this.id=id;

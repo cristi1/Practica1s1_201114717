@@ -1,0 +1,4 @@
+digraph G {\n node[shape=box, style=filled, color=Gray95];\n edge[color=blue]; \n rankdir=UD;\n
+subgraph cluster_0 { \n style=filled; \n color=lightgrey; \n node [style=filled,color=white]; \n
+jugadores -> planta ;\nplanta -> zombie ;\n
+\n label = ""Jugadores""; \n } \n }

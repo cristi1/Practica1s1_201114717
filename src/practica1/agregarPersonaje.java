@@ -5,6 +5,7 @@ import javax.swing.JFileChooser;
 public class agregarPersonaje extends javax.swing.JFrame {
     public Catalogo listaPersonaje;
     private String dir="";
+    public int tipo=0;
 
     public agregarPersonaje() {
         initComponents();
@@ -162,7 +163,7 @@ public class agregarPersonaje extends javax.swing.JFrame {
         }else{
             atq=1;
         }
-        listaPersonaje.add(jTextField1.getText(), dir, Integer.parseInt(jTextField2.getText()),atq);
+        listaPersonaje.add(this.tipo,0,0,jTextField1.getText(), dir, Integer.parseInt(jTextField2.getText()),atq);
         jCheckBox1.setSelected(false);
         jCheckBox2.setSelected(false);
         jCheckBox1.setEnabled(true);
