@@ -70,7 +70,7 @@ public class jugadores {
         }
     }
     
-    public void grafica(){
+    public void grafica(){  //metodo que recorre la estructura y genera la sintaxis para graficar
         nodoJugador aux=raiz;
         String cad="";
         if(aux!=null){
@@ -91,7 +91,7 @@ public class jugadores {
             aux=aux.sig;
         }
         }
-        archivo(cad);
+        archivo(cad); //llama a metodo archivo para generar el mismo .dot y levantar el .png
     }
     
     private void archivo(String cadena){

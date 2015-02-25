@@ -9,6 +9,7 @@ public class inicio extends javax.swing.JFrame {
     private Catalogo p,z;  //p->cat. plantas z->cat. zombies 
     int ancho=0,alto=0;
     
+    
     public inicio() {
         initComponents();
         listaJugadores=new jugadores();
