@@ -1,5 +1,9 @@
 package practica1;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 public class Catalogo {
     public nodoPersonaje primero;
     public nodoPersonaje ultimo;
@@ -55,4 +59,18 @@ public class Catalogo {
         }
     }
     
+    public String contenido(){
+        nodoPersonaje auxiliar=primero;
+        String cad0=""; 
+        while(auxiliar!=null){
+            cad0=cad0+auxiliar.nombre+"_"+auxiliar.puntos+";";
+            if(auxiliar.sig!=null){
+                cad0=cad0+auxiliar.nombre+"_"+auxiliar.puntos+" -> "+auxiliar.sig.nombre+"_"+auxiliar.sig.puntos+";";
+            }
+            auxiliar=auxiliar.sig;
+        }
+        return cad0;
+    }
+    
+        
 }

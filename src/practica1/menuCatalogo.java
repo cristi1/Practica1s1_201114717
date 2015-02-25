@@ -1,13 +1,14 @@
 package practica1;
 import java.awt.Color;
-import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class menuCatalogo extends javax.swing.JFrame {
     Catalogo catPersonajes;
     int tipo=0;
-    JPanel fondo;
-    JScrollPane scroll2; 
+    JTextArea fondo;
+    JScrollPane barra;
 
     public menuCatalogo() {
         initComponents();
@@ -40,7 +41,8 @@ public class menuCatalogo extends javax.swing.JFrame {
 
         jLabel4.setText("Ataque");
 
-        jButton1.setBackground(java.awt.Color.orange);
+        jButton1.setBackground(new java.awt.Color(0, 219, 255));
+        jButton1.setForeground(new java.awt.Color(253, 251, 251));
         jButton1.setText("Actualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,9 +95,9 @@ public class menuCatalogo extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGap(134, 134, 134)
                 .addComponent(jLabel1)
                 .addGap(76, 76, 76)
                 .addComponent(jLabel2)
@@ -103,7 +105,7 @@ public class menuCatalogo extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(75, 75, 75)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1))
         );
         layout.setVerticalGroup(
@@ -118,7 +120,7 @@ public class menuCatalogo extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(445, Short.MAX_VALUE))
+                .addContainerGap(528, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,32 +137,35 @@ public class menuCatalogo extends javax.swing.JFrame {
     public void cargarCatalogo(){
         nodoPersonaje aux=catPersonajes.primero;
         String atq="";
-        //scroll2= new JScrollPane();
-        //scroll2.setBounds(60, 40, 550, 400);
-        //scroll2.setVisible(true);
-        //this.add(scroll2);
-        fondo=new JPanel();
-        fondo.setBounds(60, 30, 550, 500);
-        fondo.setBackground(Color.ORANGE);
+        int i=0;
+        fondo=new JTextArea();
+        fondo.setBounds(0, 0, 550, 500);
+        Color cl=Color.getHSBColor(0, 0, 0);
+        fondo.setBackground(cl);
         fondo.setVisible(true);
-        
-        //scroll2.add(fondo);
-        int y=30;
-        while(aux!=null){
+        barra=new JScrollPane(fondo,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        int y=30;        while(aux!=null){
             if(aux.ataque==0){
                 atq="directo";
             }else if(aux.ataque==1){
                 atq="disparo";
             }
             aux.setLocation(60,y);
+            aux.setForeground(Color.white);
             aux.setText("        "+aux.nombre+"          "+aux.puntos+"          "+atq);
             aux.setVisible(true);
             aux.repaint();
-            this.fondo.add(aux);
+            fondo.add(aux);
             y=y+130;
+            i++;
             aux=aux.sig;
         }
-        this.add(fondo);
+        fondo.setSize(550,y);
+        fondo.setEditable(true);
+        fondo.setRows(9*i);
+        barra.setVisible(true);
+        barra.setBounds(60, 30, 550, 500);
+        this.add(barra);
         this.repaint();
     }
     
@@ -177,8 +182,9 @@ public class menuCatalogo extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.remove(fondo);
+        this.remove(barra);
         cargarCatalogo();
+        this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

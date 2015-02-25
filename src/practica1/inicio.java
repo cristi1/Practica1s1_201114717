@@ -13,7 +13,9 @@ public class inicio extends javax.swing.JFrame {
     public inicio() {
         initComponents();
         listaJugadores=new jugadores();
-        listaJugadores.add(1, "planta", 14);
+        p=new Catalogo();
+        z=new Catalogo();
+        /*listaJugadores.add(1, "planta", 14);
         listaJugadores.add(2, "zombie", 15);
         listaJugadores.otros(1, "P");
         listaJugadores.otros(2, "Z");
@@ -21,21 +23,29 @@ public class inicio extends javax.swing.JFrame {
         listaJugadores.otros(2, "O");
         listaJugadores.otros(1, "A");
         listaJugadores.otros(2, "M");    
-        listaJugadores.grafica();
-        p=new Catalogo();
-        z=new Catalogo();
+        //listaJugadores.grafica();*/
+        
         p.add(1,0,0,"planta1", "planta1.gif", 54, 1);
         p.add(1,0,0,"planta2", "planta2.gif", 90, 0);
         p.add(1,0,0,"planta3", "planta3.gif", 60, 0);
         p.add(1,0,0,"planta4", "planta4.gif", 70, 0);
         p.add(1,0,0,"planta6", "planta6.gif", 100, 1);
         p.add(1,0,0,"planta7", "planta7.gif", 110, 1);
+        /*
+        //String planta=p.contenido();
+        z.add(2, 0, 0, "zombiee1","z2.gif", 90, 0);
+        //String zombiee=z.contenido();
+        //archivos arch=new archivos();
+        //arch.archivoCatalogo(planta, zombiee);*/
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -47,6 +57,18 @@ public class inicio extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+
+        jMenu2.setText("jMenu2");
+
+        jMenu3.setText("jMenu3");
+
+        jMenuItem4.setText("jMenuItem4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,7 +154,7 @@ public class inicio extends javax.swing.JFrame {
 
         jMenu1.setText("Catalogo");
 
-        jMenuItem1.setText("plantas");
+        jMenuItem1.setText("Plantas...");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -140,7 +162,7 @@ public class inicio extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("zombies");
+        jMenuItem2.setText("Zombies...");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -149,6 +171,35 @@ public class inicio extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
+
+        jMenu4.setText("Graficas");
+
+        jMenuItem3.setText("Jugadores...");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem3);
+
+        jMenuItem5.setText("Catalogos...");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem5);
+
+        jMenuItem6.setText("Plantas...");
+        jMenu4.add(jMenuItem6);
+
+        jMenuItem7.setText("Zombies...");
+        jMenu4.add(jMenuItem7);
+
+        jMenuItem8.setText("Tablero");
+        jMenu4.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -167,18 +218,18 @@ public class inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pantalla2 p=new pantalla2();
-        p.lista=listaJugadores;
-        p.actual=1; //planta
-        p.setVisible(true);
+        pantalla2 p0=new pantalla2();
+        p0.lista=listaJugadores;
+        p0.actual=1; //planta
+        p0.setVisible(true);
         jButton1.setEnabled(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        pantalla2 z=new pantalla2();
-        z.lista=listaJugadores;
-        z.actual=2;  //zombie
-        z.setVisible(true);
+        pantalla2 z0=new pantalla2();
+        z0.lista=listaJugadores;
+        z0.actual=2;  //zombie
+        z0.setVisible(true);
         jButton2.setEnabled(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -222,6 +273,19 @@ public class inicio extends javax.swing.JFrame {
         zombies.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        listaJugadores.grafica();
+        JOptionPane.showMessageDialog(null,"la grafica ha sido creada en: \n /home/clnx/Escritorio/Estructuras/EDD1sem2015/Practica1/src/practica1/jugadores.png");
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        String planta=p.contenido();
+        String zombiee=z.contenido();
+        archivos arch=new archivos();
+        arch.archivoCatalogo(planta, zombiee);
+        JOptionPane.showMessageDialog(null,"la grafica ha sido creada en: \n /home/clnx/Escritorio/Estructuras/EDD1sem2015/Practica1/src/practica1/catalogos.png");
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -230,9 +294,18 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,0 +1,10 @@
+digraph G { node[shape=box, style=filled, color=Gray95]; edge[color=blue]; rankdir=LR
+subgraph cluster0 {style=filled;  color=lightgrey;  node [color=white];
+planta1_80;
+ label = "Catalogo Plantas";
+} 
+subgraph cluster1 {style=filled;  color=lightgrey;  node [color=white];
+Zombiies1_90;Zombiies1_90 -> zombiiee2_80;zombiiee2_80;
+ label = "Catalogo Zombies";
+}
+}

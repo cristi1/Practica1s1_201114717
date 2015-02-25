@@ -72,18 +72,20 @@ public class jugadores {
     
     public void grafica(){  //metodo que recorre la estructura y genera la sintaxis para graficar
         nodoJugador aux=raiz;
-        String cad="";
+        String cad0="",cad1="";
         if(aux!=null){
+            //cad0=cad0+"jugadores [shape=box];";
+            //cad0=cad0+"jugadores -> "+aux.texto+" ;";
         while(aux!=null){
             if(aux.sig!=null){
-                cad=cad+aux.texto+" -> "+aux.sig.texto+" ;";
+                cad0=cad0+aux.texto+" -> "+aux.sig.texto+" [constraint=false]; ";
             }
             nodoJugador aux1=aux.otros;
             if(aux1!=null){
-                cad=cad+aux.texto+" -> "+aux1.texto+" ;";
+                cad1=cad1+aux.texto+" -> "+aux1.texto+" ;";
                 while(aux1!=null){
                     if(aux1.otros!=null){
-                        cad=cad+aux1.texto+" -> "+aux1.otros.texto+" ;";
+                        cad1=cad1+aux1.texto+" -> "+aux1.otros.texto+" ;";
                     }
                     aux1=aux1.otros;
                 }
@@ -91,18 +93,23 @@ public class jugadores {
             aux=aux.sig;
         }
         }
-        archivo(cad); //llama a metodo archivo para generar el mismo .dot y levantar el .png
+        archivo(cad0,cad1); //llama a metodo archivo para generar el mismo .dot y levantar el .png
     }
     
-    private void archivo(String cadena){
+    private void archivo(String cadena0,String cadena1){
         try{
     	File creardot = new File("/home/clnx/Escritorio/Estructuras/EDD1sem2015/Practica1/src/practica1/jugadores.dot"); //Crear un objeto File que se encarga de crear un arch. esp. en su constructor
     	FileWriter escritor = new FileWriter(creardot,false); //false para que vaya al inicio del arch. a escribir 
             try (PrintWriter impresor = new PrintWriter(escritor)) {
-                impresor.println("digraph G { node[shape=box, style=filled, color=Gray95]; edge[color=blue];  rankdir=UD;");
-                impresor.println("subgraph cluster_0 {  style=filled;  color=lightgrey;  node [style=filled,color=white]; ");
-                impresor.println(cadena);
-                impresor.println(" label = \"\"Jugadores\"\";  }");
+                //impresor.println("digraph G { node[shape=box, style=filled, color=Gray95]; edge[color=blue]; ");
+                impresor.println("digraph G { \n rankdir=LR");
+                impresor.println("subgraph cluster0 {style=filled;  color=lightgrey;  node [shape=box, style=filled,color=white];");
+                impresor.println(cadena0+"\n label = \"Jugadores\";");
+                impresor.println("} ");
+                impresor.println("subgraph cluster1 {  style=filled;  color=lightgrey;  node [shape=box, style=filled,color=yellow];");
+                impresor.println(cadena1);
+                impresor.println("}");
+                impresor.println("}");
             }
     	}catch(Exception er){	
     		System.out.println(er.getMessage());
@@ -116,7 +123,5 @@ public class jugadores {
                 pbuilder.redirectErrorStream( true );
                 pbuilder.start();
             } catch (Exception e) { e.printStackTrace(); } 
-        
-        
     }   
 }
