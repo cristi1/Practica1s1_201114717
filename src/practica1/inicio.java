@@ -8,24 +8,17 @@ public class inicio extends javax.swing.JFrame {
     private menuCatalogo zombies;
     private Catalogo p,z;  //p->cat. plantas z->cat. zombies 
     int ancho=0,alto=0;
-    
-    
+    listaCabecera c;
+    listaCabecera f;
+    Matriz tablero;
+  
     public inicio() {
         initComponents();
         listaJugadores=new jugadores();
         p=new Catalogo();
         z=new Catalogo();
-        /*listaJugadores.add(1, "planta", 14);
-        listaJugadores.add(2, "zombie", 15);
-        listaJugadores.otros(1, "P");
-        listaJugadores.otros(2, "Z");
-        listaJugadores.otros(1, "L");
-        listaJugadores.otros(2, "O");
-        listaJugadores.otros(1, "A");
-        listaJugadores.otros(2, "M");    
-        //listaJugadores.grafica();*/
         
-        p.add(1,0,0,"planta1", "planta1.gif", 54, 1);
+        /*p.add(1,0,0,"planta1", "planta1.gif", 54, 1);
         p.add(1,0,0,"planta2", "planta2.gif", 90, 0);
         p.add(1,0,0,"planta3", "planta3.gif", 60, 0);
         p.add(1,0,0,"planta4", "planta4.gif", 70, 0);
@@ -36,7 +29,7 @@ public class inicio extends javax.swing.JFrame {
         z.add(2, 0, 0, "zombiee2","z3.gif", 80, 0);
         z.add(2, 0, 0, "zombiee3","z4.gif", 70, 0);
         z.add(2, 0, 0, "zombiee4","z5.gif", 60, 0);
-        z.add(2, 0, 0, "zombiee5","z1.gif", 50, 0);
+        z.add(2, 0, 0, "zombiee5","z1.gif", 50, 0);*/
     }
 
     @SuppressWarnings("unchecked")
@@ -243,7 +236,21 @@ public class inicio extends javax.swing.JFrame {
             ancho=Integer.parseInt(anch);
             alto=Integer.parseInt(alt);
             JOptionPane.showMessageDialog(null,"tamaño del tablero "+ancho+" x "+alto);
-
+            c=new listaCabecera();//ancho No. columnas
+            f=new listaCabecera();//alto No. filas
+            for(int i=1; i<=ancho;i++){
+                c.add(i);
+            }
+            for(int i=1; i<=alto;i++){
+                f.add(i);
+            }
+            tablero=new Matriz();
+            for(int i=1; i<=ancho;i++){
+                for(int j=1; j<=alto;j++){
+                    nodoPersonaje name=new nodoPersonaje(0,j,i,"cesped1","cesped.jpeg",0,0);
+                }
+            }
+            
         }else{
             JOptionPane.showMessageDialog(null,"Complete la informacion necesaria antes de iniciar el juego!!");
         }

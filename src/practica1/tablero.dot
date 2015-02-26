@@ -1,0 +1,4 @@
+digraph G { node[shape=box, style=filled, color=Gray95]; edge[color=blue]; rankdir=RL 
+11; 11 -> 12[constraint=false]; 12 -> 13[constraint=false]; 12 -> 11; [constraint=false];13 -> 12; [constraint=false];21; 21 -> 22[constraint=false]; 22 -> 23[constraint=false]; 22 -> 21; [constraint=false];23 -> 22; [constraint=false];31; 31 -> 32[constraint=false]; 32 -> 33[constraint=false]; 32 -> 31; [constraint=false];33 -> 32; [constraint=false];11; 11 -> 21[constraint=false]; 21 -> 11[constraint=false];21 -> 31[constraint=false]; 31 -> 21[constraint=false];12; 12 -> 22[constraint=false]; 22 -> 12[constraint=false];22 -> 32[constraint=false]; 32 -> 22[constraint=false];13; 13 -> 23[constraint=false]; 23 -> 13[constraint=false];23 -> 33[constraint=false]; 33 -> 23[constraint=false];
+ label = "Tablero";
+}
