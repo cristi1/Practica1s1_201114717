@@ -1,14 +1,21 @@
 package practica1;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 public class agregarPersonaje extends javax.swing.JFrame {
     public Catalogo listaPersonaje;
     private String dir="";
     public int tipo=0;
+    public int op=0;
+    public String nom="";
 
     public agregarPersonaje() {
         initComponents();
+        if(op==1){
+            jTextField1.setText(nom);
+            jTextField1.setEnabled(false);
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -158,19 +165,27 @@ public class agregarPersonaje extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int atq;
-        if(jCheckBox1.isEnabled()){
-            atq=0;
+            if(jCheckBox1.isEnabled()){
+                atq=0;
+            }else{
+                atq=1;
+            }
+        if(op==1){
+            boolean resp=listaPersonaje.modificar(this.nom,Integer.parseInt(jTextField2.getText()) , this.dir, atq);
+            if(resp==true){
+                JOptionPane.showMessageDialog(null,"¡El personaje ha sido modificado...");
+            }
+            this.dispose();
         }else{
-            atq=1;
+            listaPersonaje.add(this.tipo,0,0,jTextField1.getText(), dir, Integer.parseInt(jTextField2.getText()),atq);
+            jCheckBox1.setSelected(false);
+            jCheckBox2.setSelected(false);
+            jCheckBox1.setEnabled(true);
+            jCheckBox2.setEnabled(true);
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
         }
-        listaPersonaje.add(this.tipo,0,0,jTextField1.getText(), dir, Integer.parseInt(jTextField2.getText()),atq);
-        jCheckBox1.setSelected(false);
-        jCheckBox2.setSelected(false);
-        jCheckBox1.setEnabled(true);
-        jCheckBox2.setEnabled(true);
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed

@@ -47,7 +47,22 @@ public class Catalogo {
         }
     }
     
-    //public boolean modificar(){}
+    public boolean modificar(String nombre, int puntos, String imagen, int ataque){
+        nodoPersonaje auxiliar=primero;
+        int i=auxiliar.nombre.compareTo(nombre);
+        while(auxiliar.sig!=null && i!=0){
+            auxiliar=auxiliar.sig;
+            i=auxiliar.nombre.compareTo(nombre);
+        }
+        if(auxiliar.nombre.compareTo(nombre)==0){
+            auxiliar.puntos=puntos;
+            auxiliar.pic=imagen;
+            auxiliar.ataque=ataque;
+            return true;
+        }else{
+            return false;
+        }
+    }
     
     public boolean eliminar(String nombre){
         if(vacia() || !buscar(nombre)){
@@ -77,6 +92,7 @@ public class Catalogo {
             return true;
         }
     }
+    
     public void recorrer(){
         nodoPersonaje auxiliar=primero;
         while(auxiliar!=null){

@@ -131,7 +131,6 @@ public class menuCatalogo extends javax.swing.JFrame {
         ventana.tipo=this.tipo;
         ventana.listaPersonaje=catPersonajes;
         ventana.setVisible(true);
-        System.out.println(this.tipo);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public void cargarCatalogo(){
@@ -175,20 +174,32 @@ public class menuCatalogo extends javax.swing.JFrame {
     }
     
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        agregarPersonaje modif=new agregarPersonaje();
-        
+        String mod;
+        mod=JOptionPane.showInputDialog(null,"Nombre del personaje a modificar:  ");
+        if(mod.equals("")==false && catPersonajes.vacia()==false){
+            if(catPersonajes.buscar(mod)){
+                agregarPersonaje modif=new agregarPersonaje();
+                modif.tipo=this.tipo;
+                modif.op=1;
+                modif.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null,"¡El personaje no existe... ");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"¡verifique...");
+        }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         String elim;
-        elim=JOptionPane.showInputDialog(null,"Nombre del personaje a eliminar:");
+        elim=JOptionPane.showInputDialog(null,"Nombre del personaje a eliminar:  ");
         if (elim.equals("")==false){
             boolean r=catPersonajes.eliminar(elim);
             if(r==true){
-                JOptionPane.showMessageDialog(null,"¡El personaje ha sido eliminado...");
+                JOptionPane.showMessageDialog(null,"¡El personaje ha sido eliminado... ");
                 actualizar();
             }else{
-                JOptionPane.showMessageDialog(null,"¡El personaje no se ha encontrado...");
+                JOptionPane.showMessageDialog(null,"¡El personaje no se ha encontrado... ");
             }   
         }  
     }//GEN-LAST:event_jMenuItem4ActionPerformed
