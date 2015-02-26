@@ -10,11 +10,15 @@ public class agregarPersonaje extends javax.swing.JFrame {
     public int op=0;
     public String nom="";
 
-    public agregarPersonaje() {
+    public agregarPersonaje(int oper,String nomb) {
         initComponents();
-        if(op==1){
-            jTextField1.setText(nom);
+        if(oper==1){
+            this.nom=nomb;
+            this.op=oper;
+            jTextField1.setText(nomb);
             jTextField1.setEnabled(false);
+            jButton3.setEnabled(false);
+            System.out.println(oper+"  "+nomb);
         }
     }
     
@@ -171,12 +175,13 @@ public class agregarPersonaje extends javax.swing.JFrame {
                 atq=1;
             }
         if(op==1){
-            boolean resp=listaPersonaje.modificar(this.nom,Integer.parseInt(jTextField2.getText()) , this.dir, atq);
+            boolean resp=listaPersonaje.modificar(this.nom,Integer.parseInt(jTextField2.getText()) , dir, atq);
             if(resp==true){
                 JOptionPane.showMessageDialog(null,"¡El personaje ha sido modificado...");
+                this.dispose();
             }
-            this.dispose();
-        }else{
+            
+        }else if(op==0){
             listaPersonaje.add(this.tipo,0,0,jTextField1.getText(), dir, Integer.parseInt(jTextField2.getText()),atq);
             jCheckBox1.setSelected(false);
             jCheckBox2.setSelected(false);

@@ -1,10 +1,10 @@
 digraph G { node[shape=box, style=filled, color=Gray95]; edge[color=blue]; rankdir=LR
 subgraph cluster0 {style=filled;  color=lightgrey;  node [color=white];
-planta2_90;planta2_90 -> planta3_60;planta3_60;planta3_60 -> planta4_70;planta4_70;planta4_70 -> planta6_100;planta6_100;
+planta1_120;planta1_120 -> planta2_90;planta2_90;planta2_90 -> planta3_110;planta3_110;planta3_110 -> planta4_70;planta4_70;planta4_70 -> planta6_100;planta6_100;planta6_100 -> planta7_110;planta7_110;
  label = "Catalogo Plantas";
 } 
 subgraph cluster1 {style=filled;  color=lightgrey;  node [color=white];
-zombiee1_90;zombiee1_90 -> zombiee2_80;zombiee2_80;
+zombiee1_200;zombiee1_200 -> zombiee2_80;zombiee2_80;zombiee2_80 -> zombiee3_70;zombiee3_70;zombiee3_70 -> zombiee4_300;zombiee4_300;zombiee4_300 -> zombiee5_50;zombiee5_50;
  label = "Catalogo Zombies";
 }
 }

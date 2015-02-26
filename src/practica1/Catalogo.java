@@ -1,5 +1,7 @@
 package practica1;
 
+import javax.swing.ImageIcon;
+
 public class Catalogo {
     public nodoPersonaje primero;
     public nodoPersonaje ultimo;
@@ -56,7 +58,8 @@ public class Catalogo {
         }
         if(auxiliar.nombre.compareTo(nombre)==0){
             auxiliar.puntos=puntos;
-            auxiliar.pic=imagen;
+            auxiliar.setIcon(new ImageIcon(getClass().getResource(imagen)));
+            auxiliar.repaint();
             auxiliar.ataque=ataque;
             return true;
         }else{

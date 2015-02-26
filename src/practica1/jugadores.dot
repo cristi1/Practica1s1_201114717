@@ -1,10 +1,10 @@
 digraph G { 
  rankdir=LR
 subgraph cluster0 {style=filled;  color=lightgrey;  node [shape=box, style=filled,color=white];
-Cristi -> Jesus [constraint=false]; 
+Cristi -> Juana [constraint=false]; 
  label = "Jugadores";
 } 
 subgraph cluster1 {  style=filled;  color=lightgrey;  node [shape=box, style=filled,color=yellow];
-Cristi -> null ;Jesus -> He ;He -> is ;is -> good ;good -> miam ;miam -> miam ;
+Cristi -> 23 años ;23 años -> 30650796 ;30650796 -> usac ;usac -> sistemas ;sistemas -> palencia ;palencia -> Gad ;Gad -> is ;is -> good ;good -> ! ;Juana -> vasquez ;vasquez -> JUAREZ ;JUAREZ -> USAC ;USAC -> ADMIN ;ADMIN -> jiji ;jiji -> tommy ;
 }
 }

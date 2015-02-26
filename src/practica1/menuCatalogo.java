@@ -127,7 +127,7 @@ public class menuCatalogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        agregarPersonaje ventana=new agregarPersonaje();
+        agregarPersonaje ventana=new agregarPersonaje(0,"");
         ventana.tipo=this.tipo;
         ventana.listaPersonaje=catPersonajes;
         ventana.setVisible(true);
@@ -178,9 +178,9 @@ public class menuCatalogo extends javax.swing.JFrame {
         mod=JOptionPane.showInputDialog(null,"Nombre del personaje a modificar:  ");
         if(mod.equals("")==false && catPersonajes.vacia()==false){
             if(catPersonajes.buscar(mod)){
-                agregarPersonaje modif=new agregarPersonaje();
+                agregarPersonaje modif=new agregarPersonaje(1,mod);
                 modif.tipo=this.tipo;
-                modif.op=1;
+                modif.listaPersonaje=catPersonajes;
                 modif.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null,"¡El personaje no existe... ");
