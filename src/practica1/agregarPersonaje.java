@@ -170,8 +170,7 @@ public class agregarPersonaje extends javax.swing.JFrame {
         jCheckBox2.setEnabled(true);
         jTextField1.setText("");
         jTextField2.setText("");
-        jTextField3.setText("");
-        
+        jTextField3.setText("");  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed

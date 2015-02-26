@@ -1,8 +1,8 @@
 package practica1;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
 
 public class menuCatalogo extends javax.swing.JFrame {
     Catalogo catPersonajes;
@@ -168,13 +168,29 @@ public class menuCatalogo extends javax.swing.JFrame {
         this.add(barra);
         this.repaint();
     }
+    private void actualizar(){
+        this.remove(barra);
+        cargarCatalogo();
+        this.repaint();
+    }
     
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        agregarPersonaje modif=new agregarPersonaje();
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        
+        String elim;
+        elim=JOptionPane.showInputDialog(null,"Nombre del personaje a eliminar:");
+        if (elim.equals("")==false){
+            boolean r=catPersonajes.eliminar(elim);
+            if(r==true){
+                JOptionPane.showMessageDialog(null,"¡El personaje ha sido eliminado...");
+                actualizar();
+            }else{
+                JOptionPane.showMessageDialog(null,"¡El personaje no se ha encontrado...");
+            }   
+        }  
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -182,9 +198,7 @@ public class menuCatalogo extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.remove(barra);
-        cargarCatalogo();
-        this.repaint();
+        actualizar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

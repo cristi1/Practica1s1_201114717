@@ -24,7 +24,7 @@ public class nodoPersonaje extends JLabel{
         this.ataque=ataque;
         this.tipo=tipo;
         this.setIcon(new ImageIcon(getClass().getResource(pic)));
-        this.setSize(400,110);
+        this.setSize(400,120);
         this.posx=x;
         this.posy=y;
         this.ant=null;

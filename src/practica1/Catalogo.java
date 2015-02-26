@@ -1,9 +1,5 @@
 package practica1;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-
 public class Catalogo {
     public nodoPersonaje primero;
     public nodoPersonaje ultimo;
@@ -51,6 +47,36 @@ public class Catalogo {
         }
     }
     
+    //public boolean modificar(){}
+    
+    public boolean eliminar(String nombre){
+        if(vacia() || !buscar(nombre)){
+            return false;
+        }else{
+            nodoPersonaje auxiliar=primero;
+            int i=auxiliar.nombre.compareTo(nombre);
+            while(auxiliar.sig!=null && i!=0){
+                auxiliar=auxiliar.sig;
+                i=auxiliar.nombre.compareTo(nombre);
+            }
+            if(auxiliar.nombre.compareTo(nombre)==0){
+                if(auxiliar.ant!=null && auxiliar.sig!=null){
+                    auxiliar.ant.sig=auxiliar.sig;
+                    auxiliar.sig.ant=auxiliar.ant;
+                }else if(auxiliar.ant==null && auxiliar.sig!=null){
+                    primero=auxiliar.sig;
+                    auxiliar.sig.ant=null;
+                }else if(auxiliar.sig==null && auxiliar.ant!=null){
+                    auxiliar.ant.sig=null;
+                    ultimo=auxiliar.ant;
+                }else{
+                    primero=null;
+                    ultimo=null;
+                }
+            }
+            return true;
+        }
+    }
     public void recorrer(){
         nodoPersonaje auxiliar=primero;
         while(auxiliar!=null){

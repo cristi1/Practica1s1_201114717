@@ -49,7 +49,7 @@ public class jugadores {
             c++;
             aux=aux.sig;   
         }
-        if(c==2){
+        if(c>=2){
             return true;
         }else{
             return false;
@@ -74,8 +74,6 @@ public class jugadores {
         nodoJugador aux=raiz;
         String cad0="",cad1="";
         if(aux!=null){
-            //cad0=cad0+"jugadores [shape=box];";
-            //cad0=cad0+"jugadores -> "+aux.texto+" ;";
         while(aux!=null){
             if(aux.sig!=null){
                 cad0=cad0+aux.texto+" -> "+aux.sig.texto+" [constraint=false]; ";

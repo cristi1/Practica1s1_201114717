@@ -31,12 +31,12 @@ public class inicio extends javax.swing.JFrame {
         p.add(1,0,0,"planta4", "planta4.gif", 70, 0);
         p.add(1,0,0,"planta6", "planta6.gif", 100, 1);
         p.add(1,0,0,"planta7", "planta7.gif", 110, 1);
-        /*
-        //String planta=p.contenido();
+        
         z.add(2, 0, 0, "zombiee1","z2.gif", 90, 0);
-        //String zombiee=z.contenido();
-        //archivos arch=new archivos();
-        //arch.archivoCatalogo(planta, zombiee);*/
+        z.add(2, 0, 0, "zombiee2","z3.gif", 80, 0);
+        z.add(2, 0, 0, "zombiee3","z4.gif", 70, 0);
+        z.add(2, 0, 0, "zombiee4","z5.gif", 60, 0);
+        z.add(2, 0, 0, "zombiee5","z1.gif", 50, 0);
     }
 
     @SuppressWarnings("unchecked")
